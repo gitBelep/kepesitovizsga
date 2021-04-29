@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Army {
-    private List<MilitaryUnit> units = new ArrayList<>();
+    private final List<MilitaryUnit> units = new ArrayList<>();
 
     public int getArmySize() {
         return units.size();

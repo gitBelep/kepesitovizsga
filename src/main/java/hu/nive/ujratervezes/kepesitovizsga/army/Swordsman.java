@@ -17,7 +17,6 @@ public class Swordsman extends MilitaryUnit {
     public int sufferDamage(int damage) {
         if (firstDamage) {
             firstDamage = false;
-            return getHitPoints();
         } else {
             if (isArmour()) {
                 setHitPoints(getHitPoints() - (damage / 2));
