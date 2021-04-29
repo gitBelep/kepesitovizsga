@@ -21,20 +21,23 @@ public class Phonebook {
     }
 
     private void writeLines(BufferedWriter bw, Map<String, String> contacts) throws IOException {
-        String innerSeparator = ": ";
         boolean moreEntry = false;
         for (Map.Entry<String, String> e : contacts.entrySet()) {
-            if(moreEntry){
-               bw.newLine();
+            if (moreEntry) {
+                bw.newLine();
             }
-            bw.write(e.getKey() + innerSeparator + e.getValue());
+            String line = String.format("%s: %s", e.getKey(), e.getValue());
+            bw.write(line);
             moreEntry = true;
         }
     }
 
     private void checkParameters(Map<String, String> contacts, String output) {
-        if (contacts == null || output == null) {
-            throw new IllegalArgumentException("Parameter is null");
+        if (contacts == null) {
+            throw new IllegalArgumentException("Contacts is null");
+        }
+        if (output == null) {
+            throw new IllegalArgumentException("Path parameter is null");
         }
     }
 
